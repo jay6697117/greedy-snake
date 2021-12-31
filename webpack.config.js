@@ -84,7 +84,7 @@ module.exports = {
                   [
                     'postcss-preset-env',
                     {
-                      browsers: 'last 7 versions'
+                      browsers: 'last 2 versions'
                     }
                   ]
                 ]
