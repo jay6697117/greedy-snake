@@ -2,6 +2,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const rootDir = process.cwd(); // 项目根目录
 
 console.log(`process.env.NODE_ENV:`, process.env.NODE_ENV);
@@ -18,7 +19,7 @@ module.exports = {
     // 指定打包文件的目录
     path: path.resolve(rootDir, './dist'),
     // 打包后文件的文件
-    filename: 'bundle.js',
+    filename: './js/bundle.js',
     // 告诉webpack不使用箭头(不实用箭头函数主要是为了兼容IE)
     // 默认打包后是一个立即执行的箭头函数，在IE 11中也是无法执行的！
     // 加上下面的配置，可以在webpack打包时，最外层不再是箭头函数
@@ -74,6 +75,9 @@ module.exports = {
         test: /\.(c|le)ss$/,
         use: [
           'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
           'css-loader',
           // 引入postcss:postcss对于css就相当于babel对于js
           {
@@ -103,6 +107,9 @@ module.exports = {
       filename: 'index.html',
       favicon: path.resolve(rootDir, './public/favicon.ico'),
       template: path.resolve(rootDir, './public/index.html')
+    }),
+    new MiniCssExtractPlugin({
+      filename: './css/[name].css'
     })
   ],
   // 用来设置引用模块
