@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 const rootDir = process.cwd(); // 项目根目录
 
 console.log(`process.env.NODE_ENV:`, process.env.NODE_ENV);
@@ -110,7 +111,8 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: './css/[name].css'
-    })
+    }),
+    new OptimizeCssPlugin()
   ],
   // 用来设置引用模块
   resolve: {
