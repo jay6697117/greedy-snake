@@ -7,8 +7,8 @@ class Snake {
   element: HTMLElement;
 
   constructor() {
-    this.element = document.getElementById('snake')!;
-    this.head = document.querySelector('#snake > div') as HTMLElement;
+    this.element = document.querySelector('.snake')!;
+    this.head = document.querySelector('.snake > div') as HTMLElement;
     this.bodies = this.element.getElementsByTagName('div');
   }
 

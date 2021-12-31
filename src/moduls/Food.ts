@@ -5,7 +5,7 @@ class Food {
 
   constructor() {
     // 获取页面中的food元素并将其赋值给element
-    this.element = document.getElementById('food')!;
+    this.element = document.querySelector('.food')!;
   }
 
   // 定义一个获取食物X轴坐标的方法
