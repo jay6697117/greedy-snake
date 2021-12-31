@@ -75,7 +75,6 @@ module.exports = {
       {
         test: /\.(c|le)ss$/,
         use: [
-          'style-loader',
           {
             loader: MiniCssExtractPlugin.loader
           },
@@ -89,7 +88,7 @@ module.exports = {
                   [
                     'postcss-preset-env',
                     {
-                      browsers: 'last 2 versions'
+                      browsers: ['last 2 versions', '> 1%']
                     }
                   ]
                 ]
