@@ -26,7 +26,8 @@ module.exports = {
     // 加上下面的配置，可以在webpack打包时，最外层不再是箭头函数
     // webpack新版本已经不想兼容IE了！233
     environment: {
-      arrowFunction: false
+      arrowFunction: false,
+      const: false //兼容IE
     }
   },
   devtool: isProd ? false : 'eval-cheap-module-source-map',
