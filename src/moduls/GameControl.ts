@@ -15,7 +15,7 @@ class GameControl {
   // 创建一个属性来存储蛇的移动方向（也就是按键的方向）
   direction: string = '';
   // 创建一个属性用来记录游戏是否结束
-  isLive = true;
+  isLive: boolean = true;
 
   constructor() {
     this.snake = new Snake();
