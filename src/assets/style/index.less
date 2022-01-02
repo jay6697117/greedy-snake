@@ -24,84 +24,94 @@ body {
   font-weight: bold;
 }
 
-//设置主窗口的样式
-.main {
-  width: 360px;
-  height: 420px;
-  // 设置背景颜色
-  // background-color: @bg-color;
-  background: linear-gradient(to left, @bg-color 0%, @bg-color 100%) !important;
-  // 设置居中
-  margin: 100px auto;
-  // 设置边框
-  border: 10px solid black;
-  // 设置圆角
-  border-radius: 40px;
-
-  // 开启弹性盒模型
+.container {
+  width: 100%;
+  height: 100%;
   display: flex;
-  // 设置主轴的方向
-  flex-direction: column;
-  // 设置主轴的对齐方式
-  justify-content: space-around;
-  // 设置侧轴的对齐方式
-  align-items: center;
+  flex-direction: row;
+  justify-content:center;
+  align-items:center;
 
-  // 游戏舞台
-  .stage {
-    width: 304px;
-    height: 304px;
-    border: 2px solid black;
-    // 开启相对定位:父相
-    position: relative;
+  //设置主窗口的样式
+  .main {
+    padding: 20px;
+    // 设置背景颜色
+    // background-color: @bg-color;
+    background: linear-gradient(to left, @bg-color 0%, @bg-color 100%) !important;
+    // 设置居中
+    margin: 100px auto;
+    // 设置边框
+    border: 10px solid black;
+    // 设置圆角
+    border-radius: 40px;
 
-    // 设置蛇的样式
-    .snake {
-      & > div {
+    // 开启弹性盒模型
+    display: flex;
+    // 设置主轴的方向
+    flex-direction: column;
+    // 设置主轴的对齐方式
+    justify-content: space-around;
+    // 设置侧轴的对齐方式
+    align-items: center;
+
+    // 游戏舞台
+    .stage {
+      box-sizing: content-box;
+      width: 300px;
+      height: 300px;
+      border: 2px solid black;
+      // 开启相对定位:父相
+      position: relative;
+
+      // 设置蛇的样式
+      .snake {
+        & > div {
+          width: 10px;
+          height: 10px;
+          background-color: #000;
+          border: 1px solid @bg-color;
+          // 开启绝对定位:子绝
+          position: absolute;
+        }
+      }
+
+      // 设置食物
+      .food {
         width: 10px;
         height: 10px;
-        background-color: #000;
-        border: 1px solid @bg-color;
-        // 开启绝对定位:子绝
         position: absolute;
+        left: 0;
+        top: 0;
+
+        // 开启弹性盒
+        display: flex;
+        // 设置横轴为主轴
+        flex-direction: row;
+        // wrap表示会自动换行
+        flex-wrap: wrap;
+        // 设置主轴和侧轴的空白空间分配到元素之间
+        justify-content: space-between;
+        align-content: space-between;
+
+        & > div {
+          width: 4px;
+          height: 4px;
+          background-color: black;
+
+          // 使四个div旋转45度
+          transform: rotate(45deg);
+        }
       }
     }
 
-    // 设置食物
-    .food {
-      width: 10px;
-      height: 10px;
-      position: absolute;
-      left: 40px;
-      top: 100px;
-
-      // 开启弹性盒
+    // 记分牌
+    .score-panel {
+      width: 300px;
+      height: 100px;
       display: flex;
-      // 设置横轴为主轴
       flex-direction: row;
-      // wrap表示会自动换行
-      flex-wrap: wrap;
-      // 设置主轴和侧轴的空白空间分配到元素之间
       justify-content: space-between;
-      align-content: space-between;
-
-      & > div {
-        width: 4px;
-        height: 4px;
-        background-color: black;
-
-        // 使四个div旋转45度
-        transform: rotate(45deg);
-      }
+      align-items: center;
     }
-  }
-
-  // 记分牌
-  .score-panel {
-    width: 300px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
   }
 }
