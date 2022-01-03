@@ -3,7 +3,9 @@ import './assets/style/index.less'; //ESM
 // require('./assets/style/index.less');//CJS
 
 import Food from './modules/Food';
-import ScorePanel from './modules/ScorePanel'
+import ScorePanel from './modules/ScorePanel';
+import Snake from './modules/Snake';
+console.log(`Snake:`, Snake);
 
 // Food类: 测试代码
 const food = new Food(300, 400);
@@ -17,8 +19,6 @@ const scorePanel = new ScorePanel(100, 1);
   setTimeout(() => {
     scorePanel.addScore();
     console.log(`scorePanel.score:`, scorePanel.score);
-    // scorePanel.levelUp();
-    // console.log(`scorePanel.level:`, scorePanel.level);
     console.log('-----------------------');
     fn();
   }, 500);
