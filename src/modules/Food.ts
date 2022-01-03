@@ -9,20 +9,20 @@ class Food {
   // 定义一个属性表示食物所对应的元素
   private foodEle: HTMLElement;
 
-  constructor(stageWidth: number = 300, stageHeight = 300) {
+  constructor(stageWidth: number = 300, stageHeight = 400) {
     //初始化舞台宽度
     this.stageWidth = stageWidth;
     //初始化舞台高度
     this.stageHeight = stageHeight;
     // 获取页面中的stage元素并将其赋值给stageEle(结尾感叹号是非空断言)
-    this.stageEle = document.querySelector('.stage')!;
+    this.stageEle = document.querySelector('.stage') as HTMLElement;
     // 设置stage元素宽度
     this.stageEle.style.width = stageWidth + 'px';
     // 设置stage元素高度
     this.stageEle.style.height = stageHeight + 'px';
 
     // 获取页面中的food元素并将其赋值给element(结尾感叹号是非空断言)
-    this.foodEle = document.querySelector('.stage > .food')!;
+    this.foodEle = document.querySelector('.stage > .food') as HTMLElement;
   }
 
   // 定义一个获取食物X轴坐标的方法

@@ -13,8 +13,8 @@ class ScorePanel {
   constructor(maxLevel: number = 10, upScore: number = 10) {
     this.maxLevel = maxLevel;
     this.upScore = upScore;
-    this.scoreEle = document.querySelector('.score-panel .score')!;
-    this.levelEle = document.querySelector('.score-panel .level')!;
+    this.scoreEle = document.querySelector('.score-panel .score') as HTMLElement;
+    this.levelEle = document.querySelector('.score-panel .level') as HTMLElement;
   }
 
   //设置一个加分的方法
