@@ -11,15 +11,15 @@ class Snake {
     this.snakeBody = this.snakeEle.getElementsByTagName('div') as HTMLCollection;
   }
   // 获取蛇头X轴坐标
-  get X() {
+  public get X() {
     return this.snakeHeadEle.offsetLeft;
   }
   // 获取蛇头Y轴坐标
-  get Y() {
+  public get Y() {
     return this.snakeHeadEle.offsetTop;
   }
   // 设置蛇头X轴坐标
-  set X(value: number) {
+  public set X(value: number) {
     // console.log(`set X value:`, value)
     // 如果新值和旧值相同，则直接返回不再修改
     if (this.X === value) {
@@ -28,7 +28,7 @@ class Snake {
     this.snakeHeadEle.style.left = value + 'px';
   }
   // 设置蛇头XY轴坐标
-  set Y(value: number) {
+  public set Y(value: number) {
     // console.log(`set Y value:`, value)
     // 如果新值和旧值相同，则直接返回不再修改
     if (this.Y === value) {

@@ -6,3 +6,4 @@ new GameControl()
 const gameControl = new GameControl();
 //游戏开启
 gameControl.init();
+console.log(`首页gameControl:`, gameControl)

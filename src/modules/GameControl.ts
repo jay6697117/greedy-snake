@@ -15,9 +15,9 @@ class GameControl {
   // 创建一个属性来存储蛇的移动方向（也就是按键的方向）
   private direction: string = '';
   constructor() {
+    this.snake = new Snake();
     this.food = new Food(400, 300);
     this.scorePanel = new ScorePanel(10, 10);
-    this.snake = new Snake();
   }
   // 游戏的初始化方法，调用后游戏即开始
   init() {
@@ -33,13 +33,11 @@ class GameControl {
     this.snakeRun();
   }
   keydownHandler(e: KeyboardEvent) {
-    console.log(`keydownHandler this:`, this);
-    console.log(`keydownHandler e.key:`, e.key);
+    // console.log(`keydownHandler this:`, this);
+    // console.log(`keydownHandler e.key:`, e.key);
     this.direction = e.key;
   }
   snakeRun() {
-    console.log(`snakeRun this.snake:`, this.snake);
-    console.log('snakeRun 运行了');
     /*
      *   根据方向（this.direction）来使蛇的位置改变
      *       向上 top 减少
@@ -52,7 +50,7 @@ class GameControl {
     let Y = this.snake.Y;
     // console.log(`X 1:`, X);
     // console.log(`Y 1:`, Y);
-    console.log(`this.direction:`, this.direction);
+    console.log(`snakeRun this.direction:`, this.direction);
     // 根据按键方向来修改X值和Y值
     switch (this.direction) {
       case 'ArrowUp':
@@ -86,9 +84,10 @@ class GameControl {
     }
     // console.log(`X 2:`, X);
     // console.log(`Y 2:`, Y);
+    // 重新设置蛇的坐标
     this.snake.X = X;
     this.snake.Y = Y;
-    setTimeout(this.snakeRun.bind(this), 300-(this.scorePanel.level -1)*30);
+    setTimeout(this.snakeRun.bind(this), 300 - (this.scorePanel.level - 1) * 30);
   }
 }
 
