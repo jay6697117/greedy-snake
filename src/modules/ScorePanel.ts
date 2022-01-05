@@ -6,13 +6,13 @@ class ScorePanel {
   // 设置一个变量限制等级
   private maxLevel: number;
   // 设置一个变量表示多少分时升级
-  private upScore: number;
+  private levelUpScore: number;
   //分数和等级所在的元素，在构造函数中进行初始化
   private scoreEle: HTMLElement;
   private levelEle: HTMLElement;
-  constructor(maxLevel: number = 10, upScore: number = 10) {
+  constructor(maxLevel: number = 10, levelUpScore: number = 10) {
     this.maxLevel = maxLevel;
-    this.upScore = upScore;
+    this.levelUpScore = levelUpScore;
     this.scoreEle = document.querySelector('.score-panel .score') as HTMLElement;
     this.levelEle = document.querySelector('.score-panel .level') as HTMLElement;
   }
@@ -21,7 +21,7 @@ class ScorePanel {
   addScore() {
     this.score += 1;
     this.scoreEle.innerHTML = String(this.score);
-    if (this.score % this.upScore === 0) {
+    if (this.score % this.levelUpScore === 0) {
       this.levelUp();
     }
   }
