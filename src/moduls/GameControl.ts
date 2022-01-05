@@ -63,28 +63,28 @@ class GameControl {
 
     // 根据按键方向来修改X值和Y值
     switch (this.direction) {
-      // case 'ArrowUp':
+      case 'ArrowUp':
       case 'W':
       case 'w':
       case 'Up':
         // 向上移动 top 减少
         Y -= 10;
         break;
-      // case 'ArrowDown':
+      case 'ArrowDown':
       case 'S':
       case 's':
       case 'Down':
         // 向下移动 top 增加
         Y += 10;
         break;
-      // case 'ArrowLeft':
+      case 'ArrowLeft':
       case 'A':
       case 'a':
       case 'Left':
         // 向左移动 left 减少
         X -= 10;
         break;
-      // case 'ArrowRight':
+      case 'ArrowRight':
       case 'D':
       case 'd':
       case 'Right':

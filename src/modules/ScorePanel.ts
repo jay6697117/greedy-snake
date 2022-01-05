@@ -10,6 +10,7 @@ class ScorePanel {
   //分数和等级所在的元素，在构造函数中进行初始化
   private scoreEle: HTMLElement;
   private levelEle: HTMLElement;
+
   constructor(maxLevel: number = 10, levelUpScore: number = 10) {
     this.maxLevel = maxLevel;
     this.levelUpScore = levelUpScore;
@@ -36,4 +37,4 @@ class ScorePanel {
     this.levelEle.innerHTML = String(this.level);
   }
 }
-export default ScorePanel
+export default ScorePanel;

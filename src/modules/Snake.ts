@@ -20,10 +20,20 @@ class Snake {
   }
   // 设置蛇头X轴坐标
   set X(value: number) {
+    // console.log(`set X value:`, value)
+    // 如果新值和旧值相同，则直接返回不再修改
+    if (this.X === value) {
+      return;
+    }
     this.snakeHeadEle.style.left = value + 'px';
   }
   // 设置蛇头XY轴坐标
   set Y(value: number) {
+    // console.log(`set Y value:`, value)
+    // 如果新值和旧值相同，则直接返回不再修改
+    if (this.Y === value) {
+      return;
+    }
     this.snakeHeadEle.style.top = value + 'px';
   }
   // 蛇增加身体的方法

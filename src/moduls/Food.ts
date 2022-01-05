@@ -28,24 +28,10 @@ class Food {
     let left: number = Math.floor(Math.random() * 30) * 10;
     let top: number = Math.floor(Math.random() * 30) * 10;
 
-    //写死
-    // this.element.style.left = '240px';
-    // this.element.style.top = '240px';
     //随机数
     this.element.style.left = left + 'px';
     this.element.style.top = top + 'px';
   }
 }
-
-// 测试代码
-(function fn() {
-  setTimeout(() => {
-    const food = new Food();
-    console.log('1:', food.X, food.Y);
-    food.change();
-    console.log('2:', food.X, food.Y);
-    fn();
-  }, 3000);
-})();
 
 export default Food;

@@ -1,7 +1,8 @@
 // 引入样式
-import './assets/style/index.less'; //ESM
-// require('./assets/style/index.less');//CJS
-
+import './assets/style/index.less';
 import GameControl from './modules/GameControl';
+// import GameControl from './moduls/GameControl';
+new GameControl()
 const gameControl = new GameControl();
-console.log(`gameControl:`, gameControl);
+//游戏开启
+gameControl.init();
