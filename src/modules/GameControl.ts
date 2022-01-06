@@ -19,8 +19,8 @@ class GameControl {
   private direction: string = '';
   private isLive: boolean = true;
   constructor() {
-    let widthVal = window.localStorage.getItem('widthVal') || '30';
-    let heightVal = window.localStorage.getItem('heightVal') || '30';
+    let widthVal: string = window.localStorage.getItem('widthVal') || '30';
+    let heightVal: string = window.localStorage.getItem('heightVal') || '30';
     // console.log(`GameControl widthVal:`, widthVal, typeof widthVal);
     // console.log(`GameControl heightVal:`, heightVal, typeof heightVal);
     // this.stage = new Stage(100, 100);

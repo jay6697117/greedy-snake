@@ -56,16 +56,14 @@
       </div>
     </div>
     <script>
-      let widthVal = window.localStorage.getItem('widthVal') || '30';
-      let heightVal = window.localStorage.getItem('heightVal') || '30';
+      const widthVal = window.localStorage.getItem('widthVal') || '30';
+      const heightVal = window.localStorage.getItem('heightVal') || '30';
       document.getElementById('widthVal').value = widthVal;
       document.getElementById('heightVal').value = heightVal;
 
       document.getElementById('btn').onclick = () => {
         const widthVal = document.getElementById('widthVal').value || '30';
         const heightVal = document.getElementById('heightVal').value || '30';
-        console.log(`widthVal:`, widthVal, typeof widthVal);
-        console.log(`heightVal:`, heightVal, typeof heightVal);
         if (widthVal && heightVal) {
           window.localStorage.setItem('widthVal', widthVal);
           window.localStorage.setItem('heightVal', heightVal);
