@@ -21,13 +21,12 @@ class GameControl {
   }
   // 游戏的初始化方法，调用后游戏即开始
   init() {
+    this.food.change();
     // 绑定键盘按键按下的事件
-
     // 1.箭头函数
     // document.addEventListener('keydown', (e: KeyboardEvent) => {
     //   this.keydownHandler(e);
     // });
-
     // 2.bind重新生成一个函数绑定正确的this
     document.addEventListener('keydown', this.keydownHandler.bind(this));
     this.snakeRun();
