@@ -19,10 +19,16 @@ class GameControl {
   private direction: string = '';
   private isLive: boolean = true;
   constructor() {
-    this.stage = new Stage(200, 300);
+    let widthVal = window.localStorage.getItem('widthVal') || '30';
+    let heightVal = window.localStorage.getItem('heightVal') || '30';
+    console.log(`GameControl widthVal:`, widthVal, typeof widthVal);
+    console.log(`GameControl heightVal:`, heightVal, typeof heightVal);
+
+    // this.stage = new Stage(100, 100);
+    this.stage = new Stage(parseInt(widthVal), parseInt(heightVal));
     this.snake = new Snake();
     this.food = new Food();
-    this.scorePanel = new ScorePanel(10, 3);
+    this.scorePanel = new ScorePanel(10, 5);
     // 初始化食物位置
     this.food.change();
     //游戏开启
@@ -55,7 +61,7 @@ class GameControl {
     // 获取蛇现在坐标
     let X = this.snake.X;
     let Y = this.snake.Y;
-    console.log(`snakeRun this.direction:`, this.direction);
+    // console.log(`snakeRun this.direction:`, this.direction);
     // 根据按键方向来修改X值和Y值
     switch (this.direction) {
       case 'ArrowUp':
@@ -89,14 +95,14 @@ class GameControl {
     }
 
     // 检查蛇是否吃到了食物
-    this.checkSnakeEat(X, Y)
+    this.checkSnakeEat(X, Y);
 
     // 重新设置蛇的坐标
     try {
       this.snake.X = X;
       this.snake.Y = Y;
     } catch (error: any) {
-      alert(error.message + ', Game Over!');
+      alert(error.message + ' -- Game Over!');
       this.isLive = false;
     }
 
@@ -108,7 +114,7 @@ class GameControl {
     if (X % 10 !== 0 || Y % 10 !== 0 || this.food.X % 10 !== 0 || this.food.Y % 10 !== 0) {
       return false;
     }
-    if (X === this.food.X && Y === this.food.Y){
+    if (X === this.food.X && Y === this.food.Y) {
       console.warn('吃到食物了');
       // 食物位置改变
       this.food.change();

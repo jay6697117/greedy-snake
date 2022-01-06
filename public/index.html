@@ -9,6 +9,20 @@
 
   <body>
     <div class="container">
+      <div class="head">
+        <div class="head-top">
+          <div>
+            宽:<input type="text" id="widthVal" />
+          </div>
+          <div style="padding-left: 10px">
+            高:<input type="text" id="heightVal" />
+          </div>
+        </div>
+        <div class="head-bottom">
+          <span>可以手动设置游戏舞台的宽高</span>
+          <div id="btn" style="padding-left: 10px;"><button>设置宽高</button></div>
+        </div>
+      </div>
       <!--创建游戏的主容器-->
       <!-- <div class="main" style="background: lightblue !important"> -->
       <div class="main">
@@ -41,5 +55,23 @@
         </div>
       </div>
     </div>
+    <script>
+      let widthVal = window.localStorage.getItem('widthVal') || '30';
+      let heightVal = window.localStorage.getItem('heightVal') || '30';
+      document.getElementById('widthVal').value = widthVal;
+      document.getElementById('heightVal').value = heightVal;
+
+      document.getElementById('btn').onclick = () => {
+        const widthVal = document.getElementById('widthVal').value || '30';
+        const heightVal = document.getElementById('heightVal').value || '30';
+        console.log(`widthVal:`, widthVal, typeof widthVal);
+        console.log(`heightVal:`, heightVal, typeof heightVal);
+        if (widthVal && heightVal) {
+          window.localStorage.setItem('widthVal', widthVal);
+          window.localStorage.setItem('heightVal', heightVal);
+          window.location.reload();
+        }
+      };
+    </script>
   </body>
 </html>
