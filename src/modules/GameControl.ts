@@ -21,9 +21,8 @@ class GameControl {
   constructor() {
     let widthVal = window.localStorage.getItem('widthVal') || '30';
     let heightVal = window.localStorage.getItem('heightVal') || '30';
-    console.log(`GameControl widthVal:`, widthVal, typeof widthVal);
-    console.log(`GameControl heightVal:`, heightVal, typeof heightVal);
-
+    // console.log(`GameControl widthVal:`, widthVal, typeof widthVal);
+    // console.log(`GameControl heightVal:`, heightVal, typeof heightVal);
     // this.stage = new Stage(100, 100);
     this.stage = new Stage(parseInt(widthVal), parseInt(heightVal));
     this.snake = new Snake();

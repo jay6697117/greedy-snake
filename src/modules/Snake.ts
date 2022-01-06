@@ -121,7 +121,7 @@ class Snake {
   }
   // 检查蛇头是否撞到身体的方法
   checkSnakeHeadBody() {
-    // 获取所有的身体，检查其是否和蛇头的坐标发生重叠: inde 1 开始排除蛇头
+    // 获取所有的身体，检查其是否和蛇头的坐标发生重叠: index从1开始为了排除蛇头
     for (let index = 1; index < this.snakeBody.length; index++) {
       let element = this.snakeBody[index] as HTMLElement;
       if (this.X === element.offsetLeft && this.Y === element.offsetTop) {
