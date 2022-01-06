@@ -38,6 +38,8 @@ class Snake {
       // 进入判断说明蛇真的撞墙了
       throw new Error('蛇撞墙了');
     }
+    // 移动身体
+    this.moveSnakeBody();
     this.snakeHeadEle.style.left = value + 'px';
   }
   // 设置蛇头XY轴坐标
@@ -53,6 +55,8 @@ class Snake {
     if (value < 0 || value > this.stageHeight - 10) {
       throw new Error('蛇撞墙了');
     }
+    // 移动身体
+    this.moveSnakeBody();
     this.snakeHeadEle.style.top = value + 'px';
   }
   // 蛇增加身体的方法
