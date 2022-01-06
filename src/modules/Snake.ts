@@ -31,11 +31,13 @@ class Snake {
     if (this.X === value) {
       return;
     }
-
-    // //X值的合法范围
-    // if(value <0 || value > ){
-
-    // }
+    console.log(`Snake set X value:`, value);
+    console.log(`Snake set X this.stageWidth:`, this.stageWidth);
+    //X值的合法范围
+    if (value < 0 || value > this.stageWidth - 10) {
+      // 进入判断说明蛇真的撞墙了
+      throw new Error('蛇撞墙了');
+    }
     this.snakeHeadEle.style.left = value + 'px';
   }
   // 设置蛇头XY轴坐标
@@ -44,6 +46,12 @@ class Snake {
     // 如果新值和旧值相同，则直接返回不再修改
     if (this.Y === value) {
       return;
+    }
+    console.log(`Snake set Y value:`, value);
+    console.log(`Snake set Y this.stageWidth:`, this.stageHeight);
+    //X值的合法范围
+    if (value < 0 || value > this.stageHeight - 10) {
+      throw new Error('蛇撞墙了');
     }
     this.snakeHeadEle.style.top = value + 'px';
   }

@@ -95,6 +95,11 @@ class GameControl {
 
     // 检查蛇是否吃到了食物
     this.checkEat(X, Y);
+    // console.log(`this.checkSnakeEat(X, Y):`, this.checkSnakeEat(X, Y));
+    // const isEat = this.checkSnakeEat(X, Y);
+    // if (isEat) {
+    //   alert('吃到了');
+    // }
 
     //修改蛇的X和Y值
     try {
@@ -111,6 +116,22 @@ class GameControl {
     this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1) * 30);
   }
 
+  // 定义一个方法，用来检查蛇是否吃到食物
+  // checkSnakeEat(X: number, Y: number) {
+  //   console.log(`X`, X)
+  //   console.log(`Y`, Y)
+  //   console.log(`this.food.X`, this.food.X)
+  //   console.log(`this.food.Y`, this.food.Y)
+  //   if (X === this.food.X && Y === this.food.Y) {
+  //     // 食物的位置要进行重置
+  //     this.food.change();
+  //     // 分数增加
+  //     this.scorePanel.addScore();
+  //     // 蛇要增加一节
+  //     this.snake.addBody();
+  //     return X === this.food.X && Y === this.food.Y;
+  //   }
+  // }
   // 定义一个方法，用来检查蛇是否吃到食物
   checkEat(X: number, Y: number) {
     if (X === this.food.X && Y === this.food.Y) {

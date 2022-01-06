@@ -19,14 +19,18 @@ class GameControl {
   private direction: string = '';
   private isLive: boolean = true;
   constructor() {
-    this.stage = new Stage(400, 200);
-    this.snake = new Snake();
-    this.food = new Food();
+    this.stage = new Stage(200, 100);
     this.scorePanel = new ScorePanel(10, 10);
+    this.snake = new Snake();
+    //初始化食物位置:s
+    this.food = new Food();
+    this.food.change();
+    //初始化食物位置:e
+    //游戏开启
+    this.init();
   }
   // 游戏的初始化方法，调用后游戏即开始
   init() {
-    this.food.change();
     // 绑定键盘按键按下的事件
     // 1.箭头函数
     // document.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -52,8 +56,6 @@ class GameControl {
     // 获取蛇现在坐标
     let X = this.snake.X;
     let Y = this.snake.Y;
-    // console.log(`X 1:`, X);
-    // console.log(`Y 1:`, Y);
     console.log(`snakeRun this.direction:`, this.direction);
     // 根据按键方向来修改X值和Y值
     switch (this.direction) {
@@ -86,12 +88,32 @@ class GameControl {
         X += 10;
         break;
     }
-    // console.log(`X 2:`, X);
-    // console.log(`Y 2:`, Y);
+
+    // 检查蛇是否吃到了食物
+    console.log(`this.checkSnakeEat(X, Y):`, this.checkSnakeEat(X, Y));
+    const isEat = this.checkSnakeEat(X, Y);
+    if (isEat) {
+      console.error('吃到了');
+    }
+
     // 重新设置蛇的坐标
-    this.snake.X = X;
-    this.snake.Y = Y;
+    try {
+      this.snake.X = X;
+      this.snake.Y = Y;
+    } catch (error: any) {
+      alert(error.message + ', Game Over!');
+      this.isLive = false;
+    }
+
     this.isLive && setTimeout(this.snakeRun.bind(this), 300 - (this.scorePanel.level - 1) * 30);
+  }
+
+  // 定义一个方法，用来检查蛇是否吃到食物
+  checkSnakeEat(X: number, Y: number) {
+    if (X % 10 !== 0 || Y % 10 !== 0 || this.food.X % 10 !== 0 || this.food.Y % 10 !== 0) {
+      return false;
+    }
+    return X === this.food.X && Y === this.food.Y;
   }
 }
 
