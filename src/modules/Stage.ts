@@ -7,7 +7,7 @@ class Stage {
   // 定义一个属性表示舞台所对应的元素
   private stageEle: HTMLElement;
 
-  constructor(stageWidth: number = 300, stageHeight = 400) {
+  constructor(stageWidth: number, stageHeight: number) {
     if (stageWidth < 30) {
       console.warn('舞台宽度不能低于30像素');
       stageWidth = 30;
