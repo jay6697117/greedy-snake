@@ -4,23 +4,12 @@ class Food {
   private stageWidth: number;
   // 舞台高度
   private stageHeight: number;
-  // 定义一个属性表示舞台所对应的元素
-  private stageEle: HTMLElement;
   // 定义一个属性表示食物所对应的元素
   private foodEle: HTMLElement;
 
-  constructor(stageWidth: number = 300, stageHeight = 400) {
-    //初始化舞台宽度
-    this.stageWidth = stageWidth;
-    //初始化舞台高度
-    this.stageHeight = stageHeight;
-    // 获取页面中的stage元素并将其赋值给stageEle(结尾感叹号是非空断言)
-    this.stageEle = document.querySelector('.stage') as HTMLElement;
-    // 设置stage元素宽度
-    this.stageEle.style.width = stageWidth + 'px';
-    // 设置stage元素高度
-    this.stageEle.style.height = stageHeight + 'px';
-
+  constructor() {
+    this.stageWidth = document.querySelector('.stage')!.clientWidth; //舞台宽度
+    this.stageHeight = document.querySelector('.stage')!.clientHeight; //舞台高度
     // 获取页面中的food元素并将其赋值给element(结尾感叹号是非空断言)
     this.foodEle = document.querySelector('.stage > .food') as HTMLElement;
   }
@@ -48,4 +37,4 @@ class Food {
     this.foodEle.style.top = top + 'px';
   }
 }
-export default Food
+export default Food;

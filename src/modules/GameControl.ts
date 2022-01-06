@@ -1,11 +1,14 @@
 // 引入其他的类
+import Stage from './Stage';
+import Snake from './Snake';
 import Food from './Food';
 import ScorePanel from './ScorePanel';
-import Snake from './Snake';
 
 // 游戏控制器，控制其他的所有类
 class GameControl {
   // 定义三个属性
+  //舞台
+  private stage: Stage;
   // 蛇
   private snake: Snake;
   // 食物
@@ -16,8 +19,9 @@ class GameControl {
   private direction: string = '';
   private isLive: boolean = true;
   constructor() {
+    this.stage = new Stage(400, 200);
     this.snake = new Snake();
-    this.food = new Food(400, 300);
+    this.food = new Food();
     this.scorePanel = new ScorePanel(10, 10);
   }
   // 游戏的初始化方法，调用后游戏即开始

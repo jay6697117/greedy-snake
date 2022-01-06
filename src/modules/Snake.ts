@@ -1,4 +1,8 @@
 class Snake {
+  // 舞台宽度
+  private stageWidth: number;
+  // 舞台高度
+  private stageHeight: number;
   // 表示蛇元素
   private snakeEle: HTMLElement;
   // 表示蛇头的元素
@@ -6,6 +10,8 @@ class Snake {
   // 蛇的身体（包括蛇头）
   private snakeBody: HTMLCollection;
   constructor() {
+    this.stageWidth = document.querySelector('.stage')!.clientWidth; //舞台宽度
+    this.stageHeight = document.querySelector('.stage')!.clientHeight; //舞台高度
     this.snakeEle = document.querySelector('.stage > .snake') as HTMLElement;
     this.snakeHeadEle = document.querySelectorAll('.stage > .snake > div')[0] as HTMLElement;
     this.snakeBody = this.snakeEle.getElementsByTagName('div') as HTMLCollection;
@@ -25,6 +31,11 @@ class Snake {
     if (this.X === value) {
       return;
     }
+
+    // //X值的合法范围
+    // if(value <0 || value > ){
+
+    // }
     this.snakeHeadEle.style.left = value + 'px';
   }
   // 设置蛇头XY轴坐标
