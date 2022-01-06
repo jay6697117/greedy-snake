@@ -8,6 +8,14 @@ class Stage {
   private stageEle: HTMLElement;
 
   constructor(stageWidth: number = 300, stageHeight = 400) {
+    if (stageWidth < 30) {
+      console.warn('舞台宽度不能低于30像素');
+      stageWidth = 30;
+    }
+    if (stageHeight < 30) {
+      console.warn('舞台高度不能低于30像素');
+      stageHeight = 30;
+    }
     //初始化舞台宽度
     this.stageWidth = stageWidth;
     //初始化舞台高度

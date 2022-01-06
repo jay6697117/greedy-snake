@@ -32,6 +32,15 @@ class Food {
     let left: number = Math.floor(Math.random() * Math.floor(this.stageWidth / 10)) * 10;
     let top: number = Math.floor(Math.random() * Math.floor(this.stageHeight / 10)) * 10;
 
+    //排除靠边的情况
+    left = left === 0 ? left + 10 : left;
+    top = top === 0 ? top + 10 : top;
+    if (left === this.stageWidth - 10) {
+      left = this.stageWidth - 20;
+    }
+    if (top === this.stageHeight - 10) {
+      top = this.stageHeight - 20;
+    }
     //随机数
     this.foodEle.style.left = left + 'px';
     this.foodEle.style.top = top + 'px';

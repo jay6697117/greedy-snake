@@ -19,13 +19,12 @@ class GameControl {
   private direction: string = '';
   private isLive: boolean = true;
   constructor() {
-    this.stage = new Stage(200, 100);
-    this.scorePanel = new ScorePanel(10, 10);
+    this.stage = new Stage(100, 100);
     this.snake = new Snake();
-    //初始化食物位置:s
     this.food = new Food();
+    this.scorePanel = new ScorePanel(10, 1);
+    // 初始化食物位置
     this.food.change();
-    //初始化食物位置:e
     //游戏开启
     this.init();
   }
@@ -90,11 +89,7 @@ class GameControl {
     }
 
     // 检查蛇是否吃到了食物
-    console.log(`this.checkSnakeEat(X, Y):`, this.checkSnakeEat(X, Y));
-    const isEat = this.checkSnakeEat(X, Y);
-    if (isEat) {
-      console.error('吃到了');
-    }
+    this.checkSnakeEat(X, Y)
 
     // 重新设置蛇的坐标
     try {
@@ -113,7 +108,15 @@ class GameControl {
     if (X % 10 !== 0 || Y % 10 !== 0 || this.food.X % 10 !== 0 || this.food.Y % 10 !== 0) {
       return false;
     }
-    return X === this.food.X && Y === this.food.Y;
+    if (X === this.food.X && Y === this.food.Y){
+      console.warn('吃到食物了');
+      // 食物位置改变
+      this.food.change();
+      // 分数要增加
+      this.scorePanel.addScore();
+      // 蛇增加一节
+      this.snake.addSnakeBody();
+    }
   }
 }
 
