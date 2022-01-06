@@ -4,4 +4,4 @@ import './assets/style/index.less';
 import GameControl from './modules/GameControl';
 // new一个GameControl实例
 const gameControl = new GameControl();
-console.log(`首页 gameControl:`, gameControl)
+console.log(`首页 gameControl:`, gameControl);
