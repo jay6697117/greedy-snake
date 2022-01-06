@@ -10,8 +10,8 @@ class Snake {
   // 蛇的身体（包括蛇头）
   private snakeBody: HTMLCollection;
   constructor() {
-    this.stageWidth = document.querySelector('.stage')!.clientWidth; //舞台宽度
-    this.stageHeight = document.querySelector('.stage')!.clientHeight; //舞台高度
+    this.stageWidth = (document.querySelector('.stage') as HTMLElement).clientWidth; //舞台宽度
+    this.stageHeight = (document.querySelector('.stage') as HTMLElement).clientHeight; //舞台高度
     this.snakeEle = document.querySelector('.stage > .snake') as HTMLElement;
     this.snakeHeadEle = document.querySelectorAll('.stage > .snake > div')[0] as HTMLElement;
     this.snakeBody = this.snakeEle.getElementsByTagName('div') as HTMLCollection;
@@ -58,6 +58,27 @@ class Snake {
   // 蛇增加身体的方法
   addSnakeBody() {
     this.snakeEle.insertAdjacentHTML('beforeend', '<div></div>');
+  }
+
+  //添加一个蛇身体移动的方法
+  moveSnakeBody() {
+    /*
+     *   将后边的身体设置为前边身体的位置
+     *       举例子：
+     *           第4节 = 第3节的位置
+     *           第3节 = 第2节的位置
+     *           第2节 = 蛇头的位置
+     * */
+    // 遍历获取所有的身体
+    for (let index = this.snakeBody.length - 1; index > 0; index--) {
+      // 获取前边身体的位置
+      const X = (this.snakeBody[index - 1] as HTMLElement).offsetLeft;
+      const Y = (this.snakeBody[index - 1] as HTMLElement).offsetTop;
+
+      // 将值设置到当前身体上
+      (this.snakeBody[index] as HTMLElement).style.left = X + 'px';
+      (this.snakeBody[index] as HTMLElement).style.top = Y + 'px';
+    }
   }
 }
 

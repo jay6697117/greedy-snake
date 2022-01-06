@@ -19,10 +19,10 @@ class GameControl {
   private direction: string = '';
   private isLive: boolean = true;
   constructor() {
-    this.stage = new Stage(100, 100);
+    this.stage = new Stage(200, 300);
     this.snake = new Snake();
     this.food = new Food();
-    this.scorePanel = new ScorePanel(10, 1);
+    this.scorePanel = new ScorePanel(10, 3);
     // 初始化食物位置
     this.food.change();
     //游戏开启

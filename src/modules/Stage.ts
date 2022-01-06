@@ -21,7 +21,7 @@ class Stage {
     //初始化舞台高度
     this.stageHeight = stageHeight;
     // 获取页面中的stage元素并将其赋值给stageEle(结尾感叹号是非空断言)
-    this.stageEle = document.querySelector('.stage')!;
+    this.stageEle = document.querySelector('.stage') as HTMLElement;
     // 设置stage元素宽度
     this.stageEle.style.width = stageWidth + 'px';
     // 设置stage元素高度

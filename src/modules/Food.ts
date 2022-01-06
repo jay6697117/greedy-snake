@@ -8,8 +8,8 @@ class Food {
   private foodEle: HTMLElement;
 
   constructor() {
-    this.stageWidth = document.querySelector('.stage')!.clientWidth; //舞台宽度
-    this.stageHeight = document.querySelector('.stage')!.clientHeight; //舞台高度
+    this.stageWidth = (document.querySelector('.stage') as HTMLElement).clientWidth; //舞台宽度
+    this.stageHeight = (document.querySelector('.stage') as HTMLElement).clientHeight; //舞台高度
     // 获取页面中的food元素并将其赋值给element(结尾感叹号是非空断言)
     this.foodEle = document.querySelector('.stage > .food') as HTMLElement;
   }
