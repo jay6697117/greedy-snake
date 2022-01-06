@@ -14,6 +14,7 @@ class GameControl {
   private scorePanel: ScorePanel;
   // 创建一个属性来存储蛇的移动方向（也就是按键的方向）
   private direction: string = '';
+  private isLive: boolean = true;
   constructor() {
     this.snake = new Snake();
     this.food = new Food(400, 300);
@@ -86,7 +87,7 @@ class GameControl {
     // 重新设置蛇的坐标
     this.snake.X = X;
     this.snake.Y = Y;
-    setTimeout(this.snakeRun.bind(this), 300 - (this.scorePanel.level - 1) * 30);
+    this.isLive && setTimeout(this.snakeRun.bind(this), 300 - (this.scorePanel.level - 1) * 30);
   }
 }
 
