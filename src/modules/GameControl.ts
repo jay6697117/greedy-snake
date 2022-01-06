@@ -28,7 +28,7 @@ class GameControl {
     this.stage = new Stage(parseInt(widthVal), parseInt(heightVal));
     this.snake = new Snake();
     this.food = new Food();
-    this.scorePanel = new ScorePanel(10, 5);
+    this.scorePanel = new ScorePanel(10, 1);
     // 初始化食物位置
     this.food.change();
     //游戏开启
